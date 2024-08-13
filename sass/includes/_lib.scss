@@ -1,0 +1,9 @@
+// Boorstrap base file
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+// Materialize variables
+@import '../materialize/components/color-variables';
+@import '../materialize/components/variables';
+@import '../materialize/components/global';

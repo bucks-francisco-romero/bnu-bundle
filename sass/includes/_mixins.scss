@@ -1,0 +1,36 @@
+/**
+ * Used to calculate a REM value for a CSS property with a pixel fallback
+ * Requires $font-size to be set
+ *
+ * Note: This is not needed for IE11+
+ *
+ * @param  String $prop
+ * @param  Float $size
+ */
+@mixin relative-size($prop, $size) {
+  #{$prop}: ($size * $font-size);
+  #{$prop}: #{$size}rem;
+}
+
+/**
+ * Used to calculate a REM value fonts with a pixel fallback
+ * Requires $font-size to be set
+ *
+ * Note: This is not needed for IE11+
+ *
+ * @param  Float $size
+ */
+@mixin font-size($size) {
+  @include relative-size(font-size, $size);
+}
+
+/**
+ * Generate style to display icon
+ * @param  {String} $icon - The name of the wanted icon
+ * @param  {String} $font - The font name to use. Default $font-family-icon
+ * @param  {String} $list - The icon list to use. Default $icons-list
+ */
+@mixin icon($icon) {
+  content: map_get($icons-list, $icon);
+  font-family: $font-icon;
+}

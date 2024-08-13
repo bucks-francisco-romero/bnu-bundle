@@ -1,0 +1,14 @@
+# Exclude these directories
+/node_modules
+/build
+/dist
+/docroot
+
+# Error log
+npm-debug.log
+
+# Silly Macs
+.DS_Store
+
+# Fractal
+/framework/node_modules
