@@ -11,8 +11,6 @@
     "build:css:components": "sass -I node_modules ./sass/entrypoints:./dist",
     "build:js": "node scripts/js.js ./node_modules ./js/index.js ./dist/bundle.js",
     "build:js:components": "ls -A1 js/components/ | while read f; do node scripts/js.js ./node_modules ./js/components/${f%.*}/index.js ./dist/${f%/}.js; done;",
-    "test:js": "JASMINE_CONFIG_PATH=js/tests/jasmine.json node ./node_modules/.bin/babel-node --presets node6 ./node_modules/.bin/jasmine",
-    "test": "npm run build && npm run test:js",
     "watch:css": "chokidar '**/*.scss' -c 'npm run build:css:components'",
     "watch:js": "chokidar '**/*.js' -c 'npm run build:js:components'",
     "watch": "chokidar 'js/**/*.js' 'sass/**/*.scss' -c 'npm run build'",
@@ -32,7 +30,6 @@
   "dependencies": {
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7",
     "@popperjs/core": "^2.9.2",
     "autoprefixer": "^10.4.2",
     "babelify": "^10.0.0",
@@ -51,12 +48,14 @@
     "node": "^20.0.0"
   },
   "devDependencies": {
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
     "@frctl/fractal": "^1.3.0",
     "@frctl/mandelbrot": "^1.6.0",
-    "babel-preset-node6": "^11.0.0",
     "chokidar": "^3.4.3",
     "chokidar-cli": "^3.0.0",
     "jasmine": "^5.2.0",
+    "jasmine-core": "^5.2.0",
     "jsdom": "^16.4.0",
     "npm-run-all": "^4.1.5"
   },
