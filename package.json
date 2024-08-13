@@ -1,5 +1,5 @@
 {
-  "name": "bnu-bundle",
+  "name": "@bnuni/bnu-bundle",
   "version": "5.0.0",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
@@ -71,5 +71,9 @@
         }
       ]
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/bucks-francisco-romero/bnu-bundle/issues"
+  },
+  "homepage": "https://github.com/bucks-francisco-romero/bnu-bundle#readme"
 }
