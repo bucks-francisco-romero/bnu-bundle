@@ -2,7 +2,7 @@
   padding-left: 0;
   list-style-type: none;
   @extend .z-depth-1;
-  background-color: var(--md-sys-color-surface);
+  background-color: #fff;
   margin: 0;
   display: none;
   min-width: 100px;
@@ -11,7 +11,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 9999; // TODO: Check if this doesn't break other things
+  z-index: 9999;  // TODO: Check if this doesn't break other things
   transform-origin: 0 0;
 
   li {
