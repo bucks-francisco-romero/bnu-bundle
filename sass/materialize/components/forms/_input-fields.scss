@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "sass:list";
+
 /* Style Placeholders */
 ::placeholder {
   color: var(--md-sys-color-on-surface-variant);
@@ -17,12 +20,21 @@ input[type=month]:not(.browser-default),
 input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
-textarea.materialize-textarea { 
+textarea.materialize-textarea {
+  // General Styles
+  background-color: transparent;
+  border: none;
+  border-bottom: $input-border;
+  border-radius: 0;
   outline: none;
-  color: var(--md-sys-color-on-background);
-  width: 100%;  
-  font-size: $md_sys_typescale_body-large_size; //16px; // => 16 dp
-  height: 56px; // 56dp
+  height: calc(1.5em + 0.75rem + 2px);
+  width: 100%;
+  font-size: $input-font-size;
+  margin: $input-margin;
+  padding: $input-padding;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: box-shadow 0.3s, border 0.3s;
 }
 
 /* Validation Sass Placeholders */
@@ -39,7 +51,7 @@ textarea.materialize-textarea {
   user-select: none;
   pointer-events: none;
 }
-/*
+
 %custom-success-message {
   content: attr(data-success);
   color: $success-color;
@@ -48,14 +60,16 @@ textarea.materialize-textarea {
   content: attr(data-error);
   color: var(--md-sys-color-error);
 }
-*/
+
 
 .input-field {
   --input-color: var(--md-sys-color-primary);
 
   position: relative;
-  clear: both;
- 
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  // clear: both;
+
   // Default
 
   input, textarea {
@@ -71,10 +85,10 @@ textarea.materialize-textarea {
     border-bottom: 1px solid var(--md-sys-color-on-surface-variant);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-   
+
     &:focus:not([readonly]) {
       border-bottom: 2px solid var(--input-color);
-      padding-top: 20px + 1px; // add border-width
+      // padding-top: 20px + 1px; // add border-width
     }
 
     &:disabled, &[readonly="readonly"] {
@@ -110,7 +124,7 @@ textarea.materialize-textarea {
     user-select: none;
     font-size: 16px;
     position: absolute;
-    left: 16px;
+    left: 0px;
     top: 16px;
     cursor: text;
     transform-origin: top left;
@@ -150,7 +164,7 @@ textarea.materialize-textarea {
   .suffix {
     position: absolute;
     right: 12px;
-    top: 16px;    
+    top: 16px;
     user-select: none;
   }
 
@@ -200,7 +214,6 @@ textarea.materialize-textarea {
         color: rgba(var(--md_sys_color_on-surface), 0.38);
         border-color: rgba(var(--md_sys_color_on-surface), 0.12);
       }
-      
     }
   }
 
@@ -228,7 +241,7 @@ textarea.materialize-textarea {
 }
 
 /* Search Field */
-.searchbar {  
+.searchbar {
   .prefix {
     position: absolute;
     //left: 12px;
@@ -252,7 +265,7 @@ textarea.materialize-textarea {
   }
 }
 
-/*
+
 .input-field input[type=search] {
   display: block;
   line-height: inherit;
@@ -273,7 +286,7 @@ textarea.materialize-textarea {
     left: 1rem;
   }
 }
-*/
+
 
 /* Textarea */
 // Default textarea

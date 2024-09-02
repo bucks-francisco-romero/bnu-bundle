@@ -22,7 +22,8 @@ select {
 
 
 .select-wrapper {
-  /*
+  position: relative;
+
   &.valid .helper-text[data-success],
   &.invalid ~ .helper-text[data-error] {
     @extend %hidden-text;
@@ -55,35 +56,28 @@ select {
   & + label:after {
     //@extend %input-after-style;
   }
-  */
 
-
-
-  position: relative;
-
-  /*
-  input.select-dropdown {    
-    &:focus {
-      border-bottom: 1px solid var(--md-sys-color-primary);
-    }
+  input.select-dropdown {
     position: relative;
     cursor: pointer;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid var(--md-sys-color-on-surface-variant);
     outline: none;
-    height: 3rem;
-    line-height: 3rem;
+    height: calc(1.5em + 0.75rem + 2px);
+    line-height: calc(1.5em + 0.75rem + 2px);
     width: 100%;
-    font-size: 16px;
-    margin: 0 0 8px 0;
+    font-size: 1rem;
+    margin: 1.5rem 0;
     padding: 0;
     display: block;
-    user-select:none;
+    user-select: none;
     z-index: 1;
-    color: var(--md-sys-color-on-background);
+
+    &:focus {
+      border-bottom: 1px solid var(--md-sys-color-primary);
+    }
   }
-  */
 
   .caret {
     position: absolute;
@@ -95,13 +89,11 @@ select {
     fill: var(--md-sys-color-on-background);
   }
 
-  /*
   & + label {
     position: absolute;
     top: -26px;
     font-size: .8rem;
   }
-  */
 
   // Hide select with overflow hidden instead of using display none
   // (this prevents form validation errors with hidden form elements)
@@ -146,7 +138,7 @@ select:disabled {
   //background-color: transparent;
 }
 
-/*
+
 body.keyboard-focused {
   .select-dropdown.dropdown-content li:focus {
     //background-color: $select-option-focus;
@@ -156,15 +148,15 @@ body.keyboard-focused {
 .select-dropdown.dropdown-content {
   li {
     &:hover:not(.disabled) {
-      //background-color: $select-option-hover;
+      background-color: $select-option-hover;
     }
 
     &.selected:not(.disabled) {
-      //background-color: $select-option-selected;
+      background-color: $select-option-selected;
     }
   }
 }
-*/
+
 
 /*
 // Prefix Icons
@@ -211,5 +203,5 @@ body.keyboard-focused {
 }
 
 .select-dropdown .selected {
-  color: red;
+  color: rgba(0, 0, 0, 0.7);;
 }
