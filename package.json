@@ -1,6 +1,6 @@
 {
   "name": "@bnuni/bnu-bundle",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
   "scripts": {
