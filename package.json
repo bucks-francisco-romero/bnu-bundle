@@ -1,16 +1,19 @@
 {
   "name": "@bnuni/bnu-bundle",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
   "scripts": {
     "format:js": "node scripts/format.js ./node_modules './js/**/*.js'",
     "format:scss": "node scripts/format.js ./node_modules './sass/**/*.scss'",
-    "build": "  npm-run-all build:* build:**",
-    "build:css": "sass -I node_modules sass/styles.scss dist/styles.css",
-    "build:css:components": "sass -I node_modules ./sass/entrypoints:./dist",
+    "build": "  npm-run-all build:* build:** minify:* minify:**",
+    "build:css": "sass -I node_modules sass/styles.scss dist/styles.css --style compressed",
+    "build:css:components": "sass -I node_modules ./sass/entrypoints:./dist --style compressed",
+    "minify:css:components": "find ./dist/ -name '*.css' | while read f; do postcss ${f} -o ./${f%.css}.css; done;",
     "build:js": "node scripts/js.js ./node_modules ./js/index.js ./dist/bundle.js",
+    "minify:js": "terser -c -m --log-level info ./dist/bundle.js -o ./dist/bundle.js",
     "build:js:components": "ls -A1 js/components/ | while read f; do node scripts/js.js ./node_modules ./js/components/${f%.*}/index.js ./dist/${f%/}.js; done;",
+    "minify:js:components": "find ./dist/ -name '*.js' | while read f; do terser -c -m --log-level info ${f} -o ./${f%.js}.js; done;",
     "watch:css": "chokidar '**/*.scss' -c 'npm run build:css:components'",
     "watch:js": "chokidar '**/*.js' -c 'npm run build:js:components'",
     "watch": "chokidar 'js/**/*.js' 'sass/**/*.scss' -c 'npm run build'",
@@ -49,15 +52,20 @@
   },
   "devDependencies": {
     "@babel/node": "^7.25.0",
-    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-env": "^7.25.4",
     "@frctl/fractal": "^1.3.0",
     "@frctl/mandelbrot": "^1.6.0",
     "chokidar": "^3.4.3",
     "chokidar-cli": "^3.0.0",
+    "cssnano": "^7.0.6",
     "jasmine": "^5.2.0",
     "jasmine-core": "^5.2.0",
     "jsdom": "^16.4.0",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-preset-env": "^10.1.3",
+    "terser": "^5.37.0"
   },
   "browserify": {
     "transform": [
