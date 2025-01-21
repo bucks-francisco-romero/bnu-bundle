@@ -3,14 +3,14 @@ require('log-timestamp');
 var exec = require('child_process').exec;
 var args = process.argv.slice(2);
 
-if (args.length < 3) {
-  console.error('\x1b[31m', 'Please provide paths to node_modules, the input and the output file');
+if (args.length < 2) {
+  console.error('\x1b[31m', 'Please provide paths to the input and the output file');
 } else {
-  exec(`node ${args[0]}/.bin/browserify ${args[1]} -o ${args[2]}`, (err) => {
+  exec(`npx esbuild ${args[0]} --bundle --outfile=${args[1]}`, (err) => {
     if (err) {
       return console.error('\x1b[31m', err);
     }
 
-    console.log('\x1b[32m', `JavaScript built to file ${args[2]}`);
+    console.log('\x1b[32m', `JavaScript built to file ${args[1]}`);
   });
 }
