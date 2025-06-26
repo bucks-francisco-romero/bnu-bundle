@@ -1,8 +1,14 @@
 {
   "name": "@bnuni/bnu-bundle",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
+  "files": [
+    "scripts",
+    "js",
+    "sass",
+    "dist"
+  ],
   "scripts": {
     "format:js": "node scripts/format.js ./node_modules './js/**/*.js'",
     "format:scss": "node scripts/format.js ./node_modules './sass/**/*.scss'",
