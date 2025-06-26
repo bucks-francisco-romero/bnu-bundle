@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+require('log-timestamp');
 
 const fs = require('fs');
 const path = require('path');
