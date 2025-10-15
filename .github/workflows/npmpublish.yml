@@ -2,8 +2,11 @@ name: Publish to npm (trusted workflow)
 
 on:
   release:
-    types: [published]   # trigger when you publish a GitHub release
-    # or use tags: push: { tags: ['v*.*.*'] } depending on how you release
+    types: [published]   # keeps release trigger
+  push:
+    tags:
+      - 'v*.*.*'         # tags like v1.3.0
+      - '*.*.*'          # tags like 1.3.0 (matches 1.3.0, 10.2.3, etc.)
 
 jobs:
   publish:
