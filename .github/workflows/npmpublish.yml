@@ -22,7 +22,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # use the built-in GITHUB_TOKEN; npm will accept it for a workflow
           # that you have registered as a trusted publisher
-          auth-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: npm ci
