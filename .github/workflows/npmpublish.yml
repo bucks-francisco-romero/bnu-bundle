@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: '18'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@bnuni'
           # use the built-in GITHUB_TOKEN; npm will accept it for a workflow
           # that you have registered as a trusted publisher
           token: ${{ secrets.GITHUB_TOKEN }}
