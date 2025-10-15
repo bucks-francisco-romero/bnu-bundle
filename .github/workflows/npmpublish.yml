@@ -11,11 +11,14 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node and write npm auth for trusted workflow
+      - name: Setup Node and auth for npm
         uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -25,19 +28,24 @@ jobs:
           # that you have registered as a trusted publisher
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Print package name/version
+        run: |
+          cat package.json
+          node -e "const p=require('./package.json'); console.log('name:',p.name,'version:',p.version)"
+
+      - name: Show npm config and whoami (debug)
+        run: |
+          npm config ls -l
+          npm whoami || echo "whoami failed (no auth)"
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build (optional)
         run: npm run build || echo "no build step"
 
-      - name: Build fractal (optional)
-        run: npm run fractal:build || echo "no build fractal step"
-
-      - name: Publish to npm
+      - name: Publish to npm (explicit registry)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # for public packages:
-          npm publish --access public
-          # remove --access flag for private packages
+          npm publish --access public --registry https://registry.npmjs.org
