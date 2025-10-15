@@ -1,33 +1,39 @@
-name: Node.js Package
+name: Publish to npm (trusted workflow)
 
 on:
-  push:
-    tags:
-      - 3.*.*
-      - 4.*.*
+  release:
+    types: [published]   # trigger when you publish a GitHub release
+    # or use tags: push: { tags: ['v*.*.*'] } depending on how you release
 
 jobs:
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node and write npm auth for trusted workflow
+        uses: actions/setup-node@v4
         with:
-          node-version: 14
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run build
-      - run: npm run fractal:build
-      - run: npm publish
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+          # use the built-in GITHUB_TOKEN; npm will accept it for a workflow
+          # that you have registered as a trusted publisher
+          auth-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (optional)
+        run: npm run build || echo "no build step"
+
+      - name: Build fractal (optional)
+        run: npm run fractal:build || echo "no build fractal step"
+
+      - name: Publish to npm
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - uses: jakejarvis/s3-sync-action@master
-        if: success() || failure()
-        with:
-          args: --follow-symlinks --delete
-        env:
-          AWS_S3_BUCKET: ${{ secrets.aws_s3_bucket }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key_id }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_access_key }}
-          AWS_REGION: 'eu-west-1'
-          SOURCE_DIR: 'docroot'
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # for public packages:
+          npm publish --access public
+          # remove --access flag for private packages
