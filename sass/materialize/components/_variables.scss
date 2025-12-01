@@ -1,71 +1,5 @@
-// TypeScale
-$md_sys_typescale_body-large_size: 16px;
-
-// @use "sass:math";
-
-// // Colors
-// $success-color: color("green", "base") !default;
-// $link-color: color("light-blue", "darken-1") !default;
-
-// Floating buttons
-// $button-floating-background: var(--md-sys-color-secondary) !default;
-// $button-floating-background-hover: var(--md-ref-palette-secondary70) !default;
-// $button-floating-background-focus: var(--md-ref-palette-secondary80) !default;
-// $button-floating-color: var(--md-sys-color-on-secondary) !default;
-// $button-floating-size: 40px !default;
-// $button-floating-radius: 16px !default;
-
-// // Dropdown
-// $dropdown-item-height: 50px !default;
-
-// // Media Query Ranges
-// $small-screen-up: 601px !default;
-// $medium-screen-up: 993px !default;
-// $large-screen-up: 1201px !default;
-// $small-screen: 600.99px !default;
-// $medium-screen: 992.99px !default;
-// $large-screen: 1200.99px !default;
-
-// $medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
-// $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
-// $extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
-// $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
-// $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
-// $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
-
-// // Grid
-// $num-cols: 12 !default;
-// $gutter-width: 1.5rem !default;
-// $element-top-margin: math.div($gutter-width, 3) !default;
-// $element-bottom-margin: math.div($gutter-width * 2, 3) !default;
-
-// // Typography
-// $font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !default;
-// $text-color: var(--md-sys-color-on-background) !default;
-
-// // Header Styles
-// $h1-fontsize: 4.2rem !default;
-// $h2-fontsize: 3.56rem !default;
-// $h3-fontsize: 2.92rem !default;
-// $h4-fontsize: 2.28rem !default;
-// $h5-fontsize: 1.64rem !default;
-// $h6-fontsize: 1.15rem !default;
-
-// // Flow Text
-// $intervals: 20 !default;
-// $interval-size: math.div($large-screen - $small-screen, $intervals) !default;
-
-
-
-
-
-
-
-
-
-
-
 @use "sass:math";
+@use "sass:color";
 // ==========================================================================
 // Materialize variables
 // ==========================================================================
@@ -101,8 +35,8 @@ $md_sys_typescale_body-large_size: 16px;
 // ==========================================================================
 
 $primary-color: color('materialize-red', 'lighten-2') !default;
-$primary-color-light: lighten($primary-color, 15%) !default;
-$primary-color-dark: darken($primary-color, 15%) !default;
+$primary-color-light: color.adjust($primary-color, $lightness: 15%) !default;
+$primary-color-dark: color.adjust($primary-color, $lightness: -15%) !default;
 
 $secondary-color: color('teal', 'lighten-1') !default;
 $success-color: color('green', 'base') !default;
@@ -120,7 +54,7 @@ $badge-height: 22px !default;
 
 // Shared styles
 $button-border: none !default;
-$button-background-focus: lighten($secondary-color, 4%) !default;
+$button-background-focus: color.adjust($secondary-color, $lightness: 4%) !default;
 $button-font-size: 14px !default;
 $button-icon-font-size: 1.3rem !default;
 $button-height: 36px !default;
@@ -133,9 +67,9 @@ $button-disabled-color: #9f9f9f !default;
 
 // Raised buttons
 $button-raised-background: $secondary-color !default;
-$button-raised-background-hover: lighten(
+$button-raised-background-hover: color.adjust(
   $button-raised-background,
-  5%
+  $lightness: 5%
 ) !default;
 $button-raised-color: #fff !default;
 
@@ -153,7 +87,7 @@ $button-floating-small-size: $button-height * 0.9 !default;
 
 // Flat buttons
 $button-flat-color: #343434 !default;
-$button-flat-disabled-color: lighten(#999, 10%) !default;
+$button-flat-disabled-color: color.adjust(#999, $lightness: 10%) !default;
 
 // Floating buttons
 $button-floating-background: $secondary-color !default;
@@ -168,7 +102,7 @@ $button-floating-radius: 50% !default;
 $card-padding: 24px !default;
 $card-bg-color: #fff !default;
 $card-link-color: color('orange', 'accent-2') !default;
-$card-link-color-light: lighten($card-link-color, 20%) !default;
+$card-link-color-light: color.adjust($card-link-color, $lightness: 20%) !default;
 
 // 5. Carousel
 // ==========================================================================
@@ -199,18 +133,18 @@ $chip-margin: 5px !default;
 $datepicker-display-font-size: 2.8rem;
 $datepicker-calendar-header-color: #999;
 $datepicker-weekday-color: rgba(0, 0, 0, 0.87) !default;
-$datepicker-weekday-bg: darken($secondary-color, 7%) !default;
+$datepicker-weekday-bg: color.adjust($secondary-color, $lightness: -7%) !default;
 $datepicker-date-bg: $secondary-color !default;
 $datepicker-year: rgba(255, 255, 255, 0.7) !default;
 $datepicker-focus: rgba(0, 0, 0, 0.05) !default;
 $datepicker-selected: $secondary-color !default;
-$datepicker-selected-outfocus: desaturate(
-  lighten($secondary-color, 35%),
-  15%
+$datepicker-selected-outfocus: color.adjust(
+  color.adjust($secondary-color, $lightness: 35%),
+  $saturation: -15%
 ) !default;
-$datepicker-day-focus: transparentize(
-  desaturate($secondary-color, 5%),
-  0.75
+$datepicker-day-focus: color.adjust(
+  color.adjust($secondary-color, $saturation: -5%),
+  $alpha: -0.75
 ) !default;
 $datepicker-disabled-day-color: rgba(0, 0, 0, 0.3) !default;
 
@@ -246,7 +180,7 @@ $input-disabled-solid-color: #949494 !default;
 $input-disabled-border: 1px dotted $input-disabled-color !default;
 $input-invalid-border: 1px solid $input-error-color !default;
 $input-icon-size: 2rem;
-// $placeholder-text-color: lighten($input-border-color, 20%) !default;
+$placeholder-text-color: color.adjust($input-border-color, $lightness: 20%) !default;
 
 // Radio Buttons
 $radio-fill-color: $secondary-color !default;
@@ -261,7 +195,7 @@ $track-height: 3px !default;
 // Select
 $select-border: 1px solid #f2f2f2 !default;
 $select-background: rgba(255, 255, 255, 0.9) !default;
-$select-focus: 1px solid lighten($secondary-color, 47%) !default;
+$select-focus: 1px solid color.adjust($secondary-color, $lightness: 47%) !default;
 $select-option-hover: rgba(0, 0, 0, 0.08) !default;
 $select-option-focus: rgba(0, 0, 0, 0.08) !default;
 $select-option-selected: rgba(0, 0, 0, 0.03) !default;
@@ -271,9 +205,9 @@ $select-disabled-color: rgba(0, 0, 0, 0.3) !default;
 
 // Switches
 $switch-bg-color: $secondary-color !default;
-$switch-checked-lever-bg: desaturate(
-  lighten($switch-bg-color, 25%),
-  25%
+$switch-checked-lever-bg: color.adjust(
+  color.adjust($switch-bg-color, $lightness: 25%),
+  $saturation: -25%
 ) !default;
 $switch-unchecked-bg: #f1f1f1 !default;
 $switch-unchecked-lever-bg: rgba(0, 0, 0, 0.38) !default;
@@ -331,7 +265,7 @@ $sidenav-line-height: $sidenav-item-height !default;
 // ==========================================================================
 
 $slider-bg-color: color('grey', 'base') !default;
-$slider-bg-color-light: color('grey', 'lighten-2') !default;
+$slider-bg-color-light: map-get($grey, 'lighten-2') !default;
 $slider-indicator-color: color('green', 'base') !default;
 
 // 16. Spinners | Loaders
@@ -395,7 +329,7 @@ $interval-size: math.div($range, $intervals) !default;
 $collection-border-color: #e0e0e0 !default;
 $collection-bg-color: #fff !default;
 $collection-active-bg-color: $secondary-color !default;
-$collection-active-color: lighten($secondary-color, 55%) !default;
+$collection-active-color: color.adjust($secondary-color, $lightness: 55%) !default;
 $collection-hover-bg-color: #ddd !default;
 $collection-link-color: $secondary-color !default;
 $collection-line-height: 1.5rem !default;

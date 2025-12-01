@@ -6,7 +6,7 @@ var args = process.argv.slice(2);
 if (args.length < 2) {
   console.error('\x1b[31m', 'Please provide paths to the input and the output file');
 } else {
-  exec(`npx esbuild ${args[0]} --bundle --outfile=${args[1]}`, (err) => {
+  exec(`npx esbuild ${args[0]} --bundle --minify --outfile=${args[1]}`, (err) => {
     if (err) {
       return console.error('\x1b[31m', err);
     }
