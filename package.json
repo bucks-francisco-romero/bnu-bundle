@@ -1,6 +1,6 @@
 {
-  "name": "@bnuni/bnu-bundle",
-  "version": "5.1.0",
+  "name": "bnu-bundle",
+  "version": "5.2.0",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
   "files": [
@@ -47,7 +47,7 @@
     "sass": "^1.94.2"
   },
   "engines": {
-    "node": "^20.0.0"
+    "node": "^24"
   },
   "devDependencies": {
     "chokidar": "^5.0.0",
