@@ -66,10 +66,10 @@ select {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid var(--md-sys-color-on-surface-variant);
+    border-bottom: 1px solid #dee2e6;
     outline: none;
-    height: calc(1.5em + 0.75rem + 2px);
-    line-height: calc(1.5em + 0.75rem + 2px);
+    height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
+    line-height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
     width: 100%;
     font-size: 1rem;
     margin: 1.5rem 0;
