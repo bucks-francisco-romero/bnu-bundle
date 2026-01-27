@@ -22,19 +22,19 @@ input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
 textarea.materialize-textarea {
   // General Styles
-  background-color: transparent;
-  border: none;
-  border-bottom: $input-border;
-  border-radius: 0;
-  outline: none;
-  height: calc(1.5em + 0.75rem + 2px);
-  width: 100%;
-  font-size: $input-font-size;
-  margin: $input-margin;
-  padding: $input-padding;
-  box-shadow: none;
-  box-sizing: content-box;
-  transition: box-shadow 0.3s, border 0.3s;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0;
+    outline: none;
+    height: calc(1.5em + 0.75rem + calc(var(--bs-border-width) * 2));
+    width: 100%;
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: box-shadow 0.3s, border 0.3s;
 }
 
 /* Validation Sass Placeholders */
