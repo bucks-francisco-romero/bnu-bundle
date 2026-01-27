@@ -1,5 +1,5 @@
 {
-  "name": "@bnuni/bnu-bundle",
+  "name": "bnu-bundle",
   "version": "5.2.0",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
