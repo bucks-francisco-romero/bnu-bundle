@@ -47,7 +47,7 @@
     "sass": "^1.94.2"
   },
   "engines": {
-    "node": "^20.0.0"
+    "node": "^24"
   },
   "devDependencies": {
     "chokidar": "^5.0.0",
