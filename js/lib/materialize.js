@@ -2559,7 +2559,7 @@ var $jscomp$this = this;
     a = a.style.transform;
     if (!a) return d;
     for (var b = [], f = [], n = [], k = /(\w+)\((.+?)\)/g; (b = k.exec(a)); ) {
-      f.push(b[1]), n.push(b[2]);
+      (f.push(b[1]), n.push(b[2]));
     }
     a = r(n, function (a, b) {
       return f[b] === c;
@@ -2650,8 +2650,8 @@ var $jscomp$this = this;
         b = f ? 'rgba(' + f[1] + ',1)' : b;
       } else b = h.hex(b) ? T(b) : h.hsl(b) ? U(b) : void 0;
     } else
-      (f = (f = y(b)) ? b.substr(0, b.length - f.length) : b),
-        (b = c && !/\s/g.test(b) ? f + c : f);
+      ((f = (f = y(b)) ? b.substr(0, b.length - f.length) : b),
+        (b = c && !/\s/g.test(b) ? f + c : f));
     b += '';
     return {
       original: b,
@@ -2838,9 +2838,9 @@ var $jscomp$this = this;
         }
         if ((l = h.length))
           for (m = h[0], w = 0; w < l; w++) {
-            (p = h[w + 1]),
+            ((p = h[w + 1]),
               (t = n[w]),
-              isNaN(t) || (m = p ? m + (t + p) : m + (t + ' '));
+              isNaN(t) || (m = p ? m + (t + p) : m + (t + ' ')));
           }
         else m = n[0];
         ha[e.type](k.target, e.property, m, c, k.id);
@@ -2849,11 +2849,11 @@ var $jscomp$this = this;
       }
       if ((b = Object.keys(c).length))
         for (d = 0; d < b; d++) {
-          H ||
+          (H ||
             (H = E(document.body, 'transform')
               ? 'transform'
               : '-webkit-transform'),
-            (g.animatables[d].target.style[H] = c[d].join(' '));
+            (g.animatables[d].target.style[H] = c[d].join(' ')));
         }
       g.currentTime = a;
       g.progress = (a / g.duration) * 100;
@@ -2883,12 +2883,12 @@ var $jscomp$this = this;
             u[v].seek(q);
           }
       }
-      if (q >= w || !k) g.began || ((g.began = !0), f('begin')), f('run');
+      if (q >= w || !k) (g.began || ((g.began = !0), f('begin')), f('run'));
       if (q > n && q < k) b(q);
       else if (
         (q <= n && 0 !== r && (b(0), x && e()), (q >= k && r !== k) || !k)
       )
-        b(k), x || e();
+        (b(k), x || e());
       f('update');
       a >= k &&
         (g.remaining
@@ -3059,9 +3059,9 @@ var $jscomp$this = this;
                 h = h + 0.1,
                 g = 0;
               do {
-                (m = l + (h - l) / 2),
+                ((m = l + (h - l) / 2),
                   (n = a(m, c, b) - k),
-                  0 < n ? (h = m) : (l = m);
+                  0 < n ? (h = m) : (l = m));
               } while (1e-7 < Math.abs(n) && 10 > ++g);
               k = m;
             }
@@ -3124,7 +3124,7 @@ var $jscomp$this = this;
         f = {},
         e;
       for (e in d) {
-        (f.type = e),
+        ((f.type = e),
           d[f.type].forEach(
             (function (a) {
               return function (d, f) {
@@ -3134,7 +3134,7 @@ var $jscomp$this = this;
               };
             })(f),
           ),
-          (f = { type: f.type });
+          (f = { type: f.type }));
       }
       return b;
     })(),
@@ -3163,10 +3163,10 @@ var $jscomp$this = this;
         var b = v.length;
         if (b) {
           for (var d = 0; d < b; ) {
-            v[d] && v[d].tick(c), d++;
+            (v[d] && v[d].tick(c), d++);
           }
           a();
-        } else cancelAnimationFrame(B), (B = 0);
+        } else (cancelAnimationFrame(B), (B = 0));
       }
       return a;
     })();
@@ -6424,7 +6424,7 @@ var $jscomp$this = this;
               targetTop = void 0,
               targetLeft = void 0;
 
-            (this.xMovement = 0), (this.yMovement = 0);
+            ((this.xMovement = 0), (this.yMovement = 0));
 
             targetTop =
               origin.getBoundingClientRect().top + M.getDocumentScrollTop();
