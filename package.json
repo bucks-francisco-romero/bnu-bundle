@@ -1,6 +1,6 @@
 {
   "name": "bnu-bundle",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "A collection of front end files to kickstart projects",
   "main": "js/index.js",
   "files": [
@@ -34,17 +34,17 @@
   "license": "MIT",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.5.4",
     "bootstrap": "^5.3.8",
     "log-timestamp": "^0.3.0",
     "node.normalize.scss": "^3.0.3",
     "normalize-scss": "^8.0.0",
     "patch-package": "^8.0.0",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",
-    "postcss-preset-env": "^10.2.3",
-    "prettier": "^3.7.3",
-    "sass": "^1.94.2"
+    "postcss-preset-env": "^11.4.0",
+    "prettier": "^3.9.6",
+    "sass": "^1.103.1"
   },
   "engines": {
     "node": "^24"
@@ -52,13 +52,13 @@
   "devDependencies": {
     "chokidar": "^5.0.0",
     "chokidar-cli": "^3.0.0",
-    "cssnano": "^7.0.7",
-    "esbuild": "0.27.0",
-    "jasmine": "^5.8.0",
-    "jasmine-core": "^5.12.1",
-    "jsdom": "^27.2.0",
+    "cssnano": "^8.0.8",
+    "esbuild": "0.28.2",
+    "jasmine": "^7.0.0",
+    "jasmine-core": "^7.0.2",
+    "jsdom": "^29.1.1",
     "npm-run-all": "^4.1.5",
-    "serve-static": ">=2.2.0"
+    "serve-static": ">=2.2.1"
   },
   "bugs": {
     "url": "https://github.com/bucks-francisco-romero/bnu-bundle/issues"
